@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Modal from '../../components/UI/Modal/Modal';
-import Aux from '../Aux';
+import Aux from '../Aux/Aux';
 
 const withErrorHandler = ( WrappedComponent, axios ) => {
     return class extends Component {
@@ -9,7 +9,7 @@ const withErrorHandler = ( WrappedComponent, axios ) => {
             error: null
         }
 
-        UNSAFE_componentWillMount () {
+        componentWillMount () {
             this.reqInterceptor = axios.interceptors.request.use( req => {
                 this.setState( { error: null } );
                 return req;
